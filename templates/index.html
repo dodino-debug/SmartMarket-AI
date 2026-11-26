@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartMarket AI · Panel de inteligencia de negocios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell">
+      <span class="brand">SmartMarket<span> AI</span></span>
+      <span class="demo">Datos académicos de demostración</span>
+    </div>
+  </header>
+  <main class="shell">
+    <section aria-labelledby="panel-title">
+      <h1 id="panel-title">Panel de inteligencia de negocios</h1>
+      <p id="period" role="status">Consultando datos de ventas e inventario…</p>
+      <dl id="metrics" class="metrics"></dl>
+      <div class="charts">
+        <article class="card">
+          <h2>Ingresos mensuales</h2>
+          <div id="monthly"></div>
+        </article>
+        <article class="card">
+          <h2>Ingresos por categoría</h2>
+          <div id="categories"></div>
+        </article>
+      </div>
+      <div class="insights">
+        <article class="card">
+          <h2>Productos más vendidos</h2>
+          <ol id="leaders"></ol>
+        </article>
+        <article class="card">
+          <h2>Alertas de inventario</h2>
+          <ul id="alerts"></ul>
+        </article>
+        <article class="card">
+          <h2>Recomendaciones</h2>
+          <ul id="recommendations"></ul>
+        </article>
+      </div>
+    </section>
+    <section class="card chat" aria-labelledby="chat-title">
+      <div class="chat-heading">
+        <div>
+          <h2 id="chat-title">Chat con SmartMarket AI</h2>
+          <p>Asistente basado en reglas para consultar ventas, inventario y servicios del supermercado.</p>
+        </div>
+        <button class="secondary" type="button" id="clear">Limpiar conversación</button>
+      </div>
+      <div id="messages" role="log" aria-live="polite" aria-label="Conversación"></div>
+      <div class="suggestions">
+        <button type="button">¿Qué productos necesitan reposición?</button>
+        <button type="button">¿Qué categoría genera mayores ingresos?</button>
+        <button type="button">¿En qué mes se registraron mayores ventas?</button>
+      </div>
+      <form id="chat-form">
+        <label for="question">Tu pregunta</label>
+        <div class="composer">
+          <input id="question" required maxlength="300" placeholder="¿Cuál es el producto más vendido?">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

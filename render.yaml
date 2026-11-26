@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: smartmarket-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m database.init && exec gunicorn --bind "0.0.0.0:$PORT" --workers 2 --access-logfile - app:app
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: DATABASE_URL
+        sync: false
