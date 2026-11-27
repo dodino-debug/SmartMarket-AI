@@ -16,12 +16,16 @@ def cop(amount):
 
 FAQ = (
     (r"horario|abren|cierran", "Atendemos de lunes a domingo, de 8:00 a 20:00."),
-    (r"comercializa|que venden|que productos venden|que ofrecen|que venden",
+    (r"^(?!.*\bmejorar\b.*\bventas\b).*\b(?:ofertas?|promocion(?:es)?|promos?|descuentos?|rebajas?)\b",
+     "El prototipo de SmartMarket no tiene información sobre ofertas, promociones o descuentos vigentes."),
+    (r"comercializa|que venden|que productos venden|que ofrecen",
      "Vendemos productos de despensa, bebidas, refrigerados, aseo y hogar."),
     (r"pago|pagar|tarjeta", "Aceptamos efectivo, tarjetas débito y crédito y transferencias."),
     (r"como .*disponibilidad|como .*consult.*stock",
      "Escribe el nombre del producto, por ejemplo «¿Hay arroz?»."),
-    (r"devolu|cambios",
+    (r"\b(?:devolucion(?:es)?|devolver(?:lo|la|los|las)?|devuelvo|"
+     r"cambios|cambiar(?:lo|la|los|las)?|(?:un|el|algun|hacer|realizar|solicitar|"
+     r"tramitar|politica de) cambio)\b|^cambio$",
      "Para cambios o devoluciones, presenta tu comprobante y el producto en el punto de atención. "
      "Nuestro equipo revisará las condiciones según el tipo de producto."),
 )
